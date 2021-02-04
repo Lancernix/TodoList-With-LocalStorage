@@ -21,6 +21,7 @@ export default class Footer extends Component {
           <Button
             type='primary'
             danger
+            style={{ borderRadius: 8 }}
             disabled={doneCount === 0}
             onClick={this.handleDelDone}
           >

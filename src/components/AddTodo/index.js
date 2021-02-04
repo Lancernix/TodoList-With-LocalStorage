@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
-import { Input } from 'antd';
+import { Input, message } from 'antd';
 
 export default class AddTodo extends Component {
   state = { newTodo: '' };
+
+  notEmpty = () => {
+    message.error({
+      content: '输入不能为空',
+      duration: 1,
+      style: {
+        marginTop: '10vh',
+      },
+    });
+  };
+
   handleKeyUp = (e) => {
     if (e.keyCode !== 13) {
       return;
     }
     if (this.state.newTodo.trim() === '') {
-      alert('输入不能为空');
+      this.notEmpty();
       return;
     }
     this.props.addTodoItem({
